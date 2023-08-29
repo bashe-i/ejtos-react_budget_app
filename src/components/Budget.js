@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 const Budget = () => {
-    const { budget, totalExpenses } = useContext(AppContext);
+    const { budget, totalExpenses,currency } = useContext(AppContext);
     const [cost, setCost] = useState('');
 
     if(cost > 20000){
@@ -11,12 +11,12 @@ const Budget = () => {
     }
 
     if(cost < totalExpenses){
-        alert("The budget cannot be hgigher than the spent amount"+ totalExpenses)
+        alert("The budget cannot be higher than the spent amount"+ totalExpenses)
     }
 
     return (
         <div className='alert alert-secondary'>
-            <span>Budget: £</span>
+            <span>Budget: {currency}</span>
             <input
                         required='required'
                         type='number'
